@@ -5,26 +5,21 @@ federation({
     filename: "remoteEntry.js",
     exposes: {
         "./Button": "./src/components/Button",
-        "./store": "./src/store",
     },
-    shared: ["react", "react-dom", "jotai"],
+    shared: ["react", "react-dom"],
 }),
 
-build: {
-    modulePreload: false,
+ build: {
     target: "esnext",
     minify: false,
     cssCodeSplit: false,
-},
-
-
---port 5555 --strictPort
+  },
 
 
 import { atom, useAtom } from "jotai";
 
 const countAtom = atom(0);
 
-export function useCount() {
+export function useStore() {
   return useAtom(countAtom);
 }
