@@ -1,8 +1,8 @@
 import "./Button.css";
-import { useState } from "react";
+import { useStore } from "../store";
 
 export function Button() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useStore(0);
 
   return (
     <button className="count-button" onClick={() => setCount((count) => count + 1)}>
