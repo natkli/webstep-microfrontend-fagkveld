@@ -1,0 +1,30 @@
+import federation from "@originjs/vite-plugin-federation";
+
+federation({
+    name: "remote-app",
+    filename: "remoteEntry.js",
+    exposes: {
+        "./Button": "./src/components/Button",
+        "./store": "./src/store",
+    },
+    shared: ["react", "react-dom", "jotai"],
+}),
+
+build: {
+    modulePreload: false,
+    target: "esnext",
+    minify: false,
+    cssCodeSplit: false,
+},
+
+
+--port 5555 --strictPort
+
+
+import { atom, useAtom } from "jotai";
+
+const countAtom = atom(0);
+
+export function useCount() {
+  return useAtom(countAtom);
+}
