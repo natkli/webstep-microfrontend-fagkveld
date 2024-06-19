@@ -9,11 +9,11 @@ federation({
     shared: ["react", "react-dom"],
 }),
 
- build: {
-    target: "esnext",
-    minify: false,
-    cssCodeSplit: false,
-  },
+build: {
+  target: "esnext",
+  minify: false,
+  cssCodeSplit: false,
+},
 
 
 import { atom, useAtom } from "jotai";
